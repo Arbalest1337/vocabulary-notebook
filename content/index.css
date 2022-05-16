@@ -1,0 +1,11 @@
+.jfk-bubble .record-vocabulary-button{
+    font-size:12px;
+    position:absolute;
+    top:2px;
+    right:26px;
+    cursor: pointer;
+    color:#252525;
+    user-select: none;
+    font-family: 'Roboto',arial,sans-serif;
+    height:21px;
+}
