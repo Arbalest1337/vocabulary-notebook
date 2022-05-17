@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            html,
+            body {
+                height: 100%;
+            }
+
+            ::-webkit-scrollbar {
+                display: none;
+            }
+
+            body {
+                background: rgb(32, 33, 36);
+                color: rgb(232, 234, 237);
+                font-size: 14px;
+                font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+                font-weight: 500;
+            }
+
+            .layout {
+                display: flex;
+                flex-wrap: nowrap;
+                height: 100%;
+            }
+
+            .left {
+                width: 200px;
+                flex-shrink: 0;
+                height: 100%;
+                background: rgb(41, 42, 45);
+            }
+
+            .main {
+                flex-grow: 1;
+                height: 100%;
+                text-align: center;
+                overflow-y: scroll;
+            }
+
+            .left-top {
+                padding: 20px;
+                margin-bottom: 20px;
+                box-sizing: border-box;
+                font-size: 16px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav {
+                box-sizing: border-box;
+            }
+
+            .nav-item {
+                padding: 0 30px;
+                box-sizing: border-box;
+                min-height: 40px;
+                list-style: none;
+                user-select: none;
+                cursor: pointer;
+            }
+
+            .time-line {
+                display: flex;
+                flex-direction: column;
+                margin: 100px 80px 100px 180px;
+            }
+
+            .time-block {
+                border-left: 2px solid rgba(255, 255, 255, 0.8);
+                display: flex;
+                flex-wrap: wrap;
+                padding: 0 0 120px 40px;
+                box-sizing: border-box;
+                min-height: 150px;
+                position: relative;
+            }
+
+            .time-block::before {
+                content: '';
+                width: 12px;
+                height: 12px;
+                position: absolute;
+                left: -7px;
+                top: -6px;
+                border-radius: 50%;
+                background: #fff;
+            }
+
+            .time-block::after {
+                content: attr(data-date);
+                position: absolute;
+                left: -30px;
+                font-size: 18px;
+                top: 0;
+                transform: translate(-100%, -50%);
+            }
+
+            .vocab {
+                display: inline-block;
+                margin: 0 20px 20px 0;
+                border-radius: 10px;
+                border: 1px solid rgb(95, 99, 104);
+                padding: 8px 12px;
+                height: 16px;
+                font-size: 16px;
+                line-height: 16px;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+            }
+
+            .vocab:hover {
+                border-color: rgba(255, 255, 255, 0.6);
+            }
+         
+        </style>
+    </head>
+    <body>
+        <div class="layout">
+            <div class="left">
+                <div class="left-top">Vocabulary Notebook</div>
+                <ul class="nav">
+                    <li class="nav-item">Time line</li>
+                </ul>
+            </div>
+            <div class="main">
+                <div class="time-line" id="list">
+                    <div class="time-block" data-date="2022.5.17">
+                        <span class="vocab" title="中文">word</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../utils/storage.js"></script>
+    <script src="./index.js"></script>
+</html>

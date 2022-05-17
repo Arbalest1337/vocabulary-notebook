@@ -19,11 +19,17 @@
         "48": "/icons/48.png",
         "128": "/icons/icon.png"
     },
+    "background": {
+        "service_worker":"background/index.js",
+        "type":"module"
+    },
+    "permissions":["storage","tabs"],
     "content_scripts":[
         {
             "matches":["<all_urls>"],
             "css":["content/index.css"],
-            "js":["content/index.js"]
+            "js":["content/index.js","utils/storage.js"],
+            "run_at":"document_idle"
         }
     ]
 }

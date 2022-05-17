@@ -1,7 +1,102 @@
 <!DOCTYPE html>
 <html>
-    <head> </head>
+    <head>
+        <style>
+            body {
+                background: #000;
+                overflow: hidden;
+            }
+
+            .box,
+            .box::after {
+                cursor: pointer;
+                margin: 15px;
+                width: 140px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 14px;
+                font-weight: 600;
+                color: #fff;
+                text-align: center;
+                background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
+                box-shadow: 3px 0 0 0 #fff;
+                position: relative;
+            }
+
+            .box::after {
+                margin: 0;
+                --step-1: inset(60% -3px 24% 0);
+                --step-2: inset(70% -3px 30% 0);
+                --step-3: inset(20% -3px 80% 0);
+                --step-4: inset(10% -3px 62% 0);
+                --step-5: inset(30% -3px 61% 0);
+                --step-6: inset(50% -3px 50% 0);
+                --step-7: inset(36% -3px 30% 0);
+                --step-8: inset(67% -3px 33% 0);
+                --step-9: inset(67% -3px 5% 0);
+                --step-10: inset(67% -3px 30% 0);
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: 'Go Notebook';
+                display: block;
+                text-shadow: 2px 2px 0 black, -2px -2px 0 black;
+                animation: flash 2s infinite reverse;
+                animation-timing-function: steps(2, end);
+            }
+
+            @keyframes flash {
+                0% {
+                    clip-path: var(--step-1);
+                    transform: translate(-5%, -20%);
+                }
+                10% {
+                    clip-path: var(--step-2);
+                    transform: translate(-4%, 40%);
+                }
+                20% {
+                    clip-path: var(--step-3);
+                    transform: translate(-3%, 26%);
+                }
+                30% {
+                    clip-path: var(--step-4);
+                    transform: translate(4%, -5%);
+                }
+                40% {
+                    clip-path: var(--step-5);
+                    transform: translate(-4%, -37%);
+                }
+                50% {
+                    clip-path: var(--step-6);
+                    transform: translate(6%, 38%);
+                }
+                60% {
+                    clip-path: var(--step-7);
+                    transform: translate(-9%, -23%);
+                }
+                70% {
+                    clip-path: var(--step-8);
+                    transform: translate(3%, 47%);
+                }
+                80% {
+                    clip-path: var(--step-9);
+                    transform: translate(0%, -2%);
+                }
+                90% {
+                    clip-path: var(--step-10);
+                    transform: translate(4%, 0%);
+                }
+                100% {
+                    clip-path: var(--step-4);
+                    transform: translate(3%, -23%);
+                }
+            }
+        </style>
+    </head>
     <body>
-        <button id="button">this is popup</button>
+        <div class="popup">
+            <button class="box" id="button">Go Notebook</button>
+            <script src="index.js"></script>
+        </div>
     </body>
 </html>
