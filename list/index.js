@@ -1,8 +1,9 @@
 const container = document.getElementById('list')
-async function refresh() {
-    const result = (await storageGet('vocabularies')) || {}
+
+async function refresh(newValue) {
+    const list = (newValue ?? (await storageGet('vocabularies'))) || []
     const splitByDate = {}
-    result.reverse().forEach(item => {
+    list.reverse().forEach(item => {
         const date = new Date(item.timestamp).toLocaleDateString('zh-CN').replace(/\//g, '.')
         if (!splitByDate[date]) {
             splitByDate[date] = []
@@ -22,7 +23,14 @@ async function refresh() {
         }
         nodesStr += `<div class="time-block" data-date="${key}">${vocabulariesStr}</div>`
     }
-
     container.innerHTML = nodesStr
 }
+
 refresh()
+
+// auto update
+chrome.storage.onChanged.addListener((changes, areaName) => {
+    if (areaName === 'sync') {
+        refresh(changes.vocabularies.newValue)
+    }
+})
