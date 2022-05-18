@@ -1,6 +1,6 @@
 # Vocabulary Notebook
 
-## A chrome extension based on Google Translate that can help me to improve my English.
+## A chrome extension based on Google Translate that can help me to improve my English. So you must install Google Translate first.
 
 ### _It's just an attempt at chrome extension_ 😉
 
