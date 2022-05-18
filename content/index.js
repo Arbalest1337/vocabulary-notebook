@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const config = { attributes: false, childList: true, subtree: false }
 const callback = function (mutationsList, observer) {
@@ -26,7 +26,7 @@ function createButton() {
 
 async function doRecord() {
     const detail = getContent()
-    const { timestamp, original, originalLanguage } = detail
+    const { timestamp, original } = detail
     const result = {
         id: `${timestamp}-${original}`,
         hidden: false,
