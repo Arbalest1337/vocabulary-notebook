@@ -30,7 +30,7 @@ refresh()
 
 // auto update
 chrome.storage.onChanged.addListener((changes, areaName) => {
-    if (areaName === 'sync') {
+    if (areaName === 'local') {
         refresh(changes.vocabularies.newValue)
     }
 })

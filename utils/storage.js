@@ -1,6 +1,6 @@
 async function storageSet(key, data) {
     return new Promise(resolve => {
-        chrome.storage.sync.set({ [key]: data }, () => {
+        chrome.storage.local.set({ [key]: data }, () => {
             resolve()
         })
     })
@@ -8,13 +8,13 @@ async function storageSet(key, data) {
 
 async function storageGet(key) {
     return new Promise(resolve => {
-        chrome.storage.sync.get([key], result => {
+        chrome.storage.local.get([key], result => {
             resolve(result[key])
         })
     })
 }
 
 function storageClear() {
-    chrome.storage.sync.clear()
+    chrome.storage.local.clear()
 }
 

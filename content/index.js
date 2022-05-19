@@ -4,7 +4,7 @@ const config = { attributes: false, childList: true, subtree: false }
 const callback = function (mutationsList, observer) {
     for (let mutation of mutationsList) {
         const [newNode, ...other] = mutation.addedNodes
-        if (newNode?.className.includes('jfk-bubble gtx-bubble')) {
+        if (newNode?.className?.includes('jfk-bubble gtx-bubble')) {
             newNode.appendChild(createButton())
         }
     }
